@@ -36,7 +36,7 @@ public class UCS : SearchingAlgorithm
 			currentNode.Visit(visitedMaterial);
 
 			// Wait after visiting the node
-			yield return new WaitForSeconds(0.5f);
+			yield return new WaitForSeconds(speedRate);
 
 			// Check if the destination node is reached
 			if (currentNode == destination)

@@ -51,7 +51,7 @@ public class IDS : SearchingAlgorithm
 		currentNode.Visit(visitedMaterial);
 
 		// Wait after visiting the node
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(speedRate);
 
 		// Check if the destination node is reached
 		if (currentNode == destination)
@@ -86,7 +86,7 @@ public class IDS : SearchingAlgorithm
 		foreach (var node in FindObjectsOfType<Node>())
 		{
 			node.isVisited = false;
-			node.ResetMaterial();
+			node.Setmaterial(node.PreviousMaterial);
 		}
 	}
 }

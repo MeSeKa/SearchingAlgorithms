@@ -25,7 +25,7 @@ public class BFS : SearchingAlgorithm
 			{
 				if (!neighbour.isVisited)
 				{
-					yield return new WaitForSeconds(.5f);
+					yield return new WaitForSeconds(speedRate);
 					neighbour.Visit(visitedMaterial);
 					if (neighbour == destination)// Founded
 					{

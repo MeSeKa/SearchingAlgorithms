@@ -16,11 +16,23 @@ public class Node : MonoBehaviour
 	}
 
 	Material previousMaterial;
+
+	public Material PreviousMaterial { get => previousMaterial; set => previousMaterial = value; }
+
+	private void Awake()
+	{
+		previousMaterial = GetComponent<Renderer>().material;
+	}
+
 	public void Visit(Material visitedMaterial)
 	{
 		isVisited = true;
-		previousMaterial = GetComponent<Renderer>().material;
+		PreviousMaterial = GetComponent<Renderer>().sharedMaterial;
 		GetComponent<Renderer>().sharedMaterial = visitedMaterial;
+	}
+	public void Setmaterial(Material mat)
+	{
+		GetComponent<Renderer>().sharedMaterial = mat;
 	}
 
 	[ContextMenu("Fill neighbourlist")]
@@ -56,6 +68,6 @@ public class Node : MonoBehaviour
 
 	public void ResetMaterial()
 	{
-		GetComponent<Renderer>().sharedMaterial = previousMaterial;
+		GetComponent<Renderer>().sharedMaterial = PreviousMaterial;
 	}
 }

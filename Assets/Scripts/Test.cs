@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -52,5 +53,13 @@ public class Test : MonoBehaviour
 	public void Restart()
 	{
 		SceneManager.LoadScene(0);
+	}
+
+	public void SetRate(Single value)
+	{
+		foreach (var item in algorithms)
+		{
+			item.SetRate(1.0f / value);
+		}
 	}
 }
